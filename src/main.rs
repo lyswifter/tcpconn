@@ -2,7 +2,8 @@ use tokio::{
     net::TcpStream,
     sync::{mpsc, oneshot, RwLock},
     task,
-    time::timeout,
+    time,
+    time::Duration,
 };
 use tokio::io::AsyncWriteExt;
 use std::{
@@ -21,9 +22,12 @@ async fn main() {
 
     let stream = TcpStream::connect("172.28.234.45:4132").await;
 
+    println!("---------------");
+
     match stream {
         Ok(mut streamm) => {
             let ret = streamm.write_all(b"hello world!").await;
+            println!("-------+++--------");
             match ret {
                 Ok(_rett) => {
                     info!("write hello ok");
@@ -37,6 +41,8 @@ async fn main() {
             error!("connection encounter error {}", error)
         }
     }
+
+    time::sleep(Duration::new(5, 0));
 
     println!("Hello, end!");
 
