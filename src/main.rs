@@ -29,15 +29,15 @@ async fn main() {
             println!("-------+++--------");
             match ret {
                 Ok(_rett) => {
-                    info!("write hello ok");
+                    println!("write hello ok");
                 }
                 Err(error) => {
-                    error!("write info encounter error {}", error)
+                    println!("write info encounter error {}", error)
                 }
             }
         }
         Err(error) => {
-            error!("connection encounter error {}", error)
+            println!("connection encounter error {}", error)
         }
     }
 
