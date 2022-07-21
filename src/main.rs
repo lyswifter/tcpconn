@@ -1,5 +1,6 @@
 use tokio::{
     net::TcpStream,
+    net::TcpListener,
     sync::{mpsc, oneshot, RwLock},
     task,
     time,
@@ -19,7 +20,13 @@ use log::{info, error};
 async fn main() {
     // let peer_ip = SocketAddr::new(IpAddr::V4(Ipv4Addr::new(172,28,234,45)), 4132);
 
-    let stream = TcpStream::connect("172.28.234.45:4132").await;
+    //127.0.0.1:8080
+    //172.28.234.45:4132
+    //8.219.132.75:4132
+
+    println!("-------start connection--------");
+
+    let stream = TcpStream::connect("8.219.132.75:4132").await;
 
     println!("---------------");
 
@@ -40,8 +47,6 @@ async fn main() {
             println!("connection encounter error {}", error)
         }
     }
-
-    time::sleep(Duration::new(5, 0));
 
     println!("Hello, end!");
 
