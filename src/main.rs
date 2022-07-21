@@ -23,10 +23,11 @@ async fn main() {
     //127.0.0.1:8080
     //172.28.234.45:4132
     //8.219.132.75:4132
+    //144.126.219.193:4132
 
     println!("-------start connection--------");
 
-    let stream = TcpStream::connect("8.219.132.75:4132").await;
+    let stream = TcpStream::connect("172.28.234.45:4132").await;
 
     println!("---------------");
 
